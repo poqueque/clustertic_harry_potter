@@ -16,7 +16,7 @@ List<Character> characters = [
   Character(
       name: "Hermione Granger",
       url:
-          "https://upload.wikimedia.org/wikipedia/en/d/d3/Hermione_Granger_poster.jpg",
+          "https://static.wikia.nocookie.net/warnerbros/images/3/3e/Hermione.jpg/revision/latest/scale-to-width-down/1000?cb=20120729103114&path-prefix=es",
       stars: 5,
       reviews: 107,
       strenght: 7,
@@ -25,7 +25,7 @@ List<Character> characters = [
   Character(
       name: "Ron Weasley",
       url:
-          "https://upload.wikimedia.org/wikipedia/en/5/5e/Ron_Weasley_poster.jpg",
+          "https://static.wikia.nocookie.net/warnerbros/images/a/af/Rony.jpg/revision/latest?cb=20120402152702&path-prefix=es",
       stars: 4,
       reviews: 55,
       strenght: 7,
