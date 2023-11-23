@@ -1,9 +1,27 @@
 import 'package:flutter/widgets.dart';
+import 'package:harry_potter/services/database.dart';
 
 import '../models/character.dart';
 
 class HogwartsData extends ChangeNotifier {
-  List<Character> characters = [
+  List<Character> characters = [];
+
+  HogwartsData() {
+    init();
+  }
+
+  init() async {
+    characters = await Database.instance.getAllCharacters();
+    if (characters.isEmpty) {
+      for (var character in charactersInitial) {
+        await Database.instance.updateCharacter(character);
+        characters.add(character);
+      }
+    }
+    notifyListeners();
+  }
+
+  List<Character> charactersInitial = [
     Character(
         id: 1,
         name: "Harry Potter",
@@ -37,12 +55,16 @@ class HogwartsData extends ChangeNotifier {
   ];
 
   void addReview(int id, int rating) {
-    getCharFromId(id).addReview(rating);
+    var character = getCharFromId(id);
+    character.addReview(rating);
+    Database.instance.updateCharacter(character);
     notifyListeners();
   }
 
   void toggleFavorite(int id) {
-    getCharFromId(id).favorite = !getCharFromId(id).favorite;
+    var character = getCharFromId(id);
+    character.favorite = !getCharFromId(id).favorite;
+    Database.instance.updateCharacter(character);
     notifyListeners();
   }
 

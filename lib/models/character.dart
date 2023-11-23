@@ -1,5 +1,10 @@
+import 'package:isar/isar.dart';
+
+part 'character.g.dart';
+
+@collection
 class Character {
-  final int id;
+  Id id = Isar.autoIncrement;
   final String name;
   final String url;
   double totalStars;
