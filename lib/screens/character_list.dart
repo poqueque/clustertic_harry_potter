@@ -12,6 +12,10 @@ class CharacterList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: Image.asset(
+            'assets/images/hogwarts.png',
+            height: 24,
+          ),
           title: const Text("Welcome to Hogwarts"),
           actions: [
             Consumer<Preferences>(builder: (context, preferences, child) {

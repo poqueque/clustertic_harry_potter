@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:harry_potter/data/hogwarts_data.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
-            fontFamily: GoogleFonts.montserrat().fontFamily,
+            fontFamily: 'Montserrat',
             appBarTheme: AppBarTheme(
               backgroundColor: Colors.purple.shade200,
               foregroundColor: Colors.white,
