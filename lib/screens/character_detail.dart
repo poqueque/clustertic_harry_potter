@@ -3,6 +3,7 @@ import 'package:harry_potter/data/hogwarts_data.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
+import '../gen/assets.gen.dart';
 import '../models/character.dart';
 import '../widgets/rating.dart';
 
@@ -68,7 +69,7 @@ class _CharacterDetailState extends State<CharacterDetail> {
                   onTap: () => data.toggleFavorite(widget.id),
                   child: (character.favorite)
                       ? Lottie.asset(
-                          'assets/anim/heart.json',
+                          Assets.anim.heart,
                           height: 48,
                           width: 48,
                           repeat: false,

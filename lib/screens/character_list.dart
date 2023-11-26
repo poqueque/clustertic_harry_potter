@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../data/hogwarts_data.dart';
 import '../data/preferences.dart';
+import '../gen/assets.gen.dart';
 
 class CharacterList extends StatelessWidget {
   const CharacterList({super.key});
@@ -12,8 +13,7 @@ class CharacterList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Image.asset(
-            'assets/images/hogwarts.png',
+          leading: Assets.images.hogwarts.image(
             height: 24,
           ),
           title: const Text("Welcome to Hogwarts"),
