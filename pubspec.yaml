@@ -36,6 +36,7 @@ dependencies:
   path_provider: ^2.1.1
   provider: ^6.1.1
   shared_preferences: ^2.2.2
+  flutter_native_splash: ^2.3.6
 
 dev_dependencies:
   flutter_test:
@@ -91,3 +92,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  background_image: "assets/images/hp_background.png"
+  android_12:
+    image: "assets/images/hp_logo_1152.png"
+    color: "#F6C546"
+    icon_background_color: "#F6C546"
