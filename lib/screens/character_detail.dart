@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/data/hogwarts_data.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
+import '../gen/assets.gen.dart';
 import '../models/character.dart';
 import '../widgets/rating.dart';
 
@@ -65,12 +67,20 @@ class _CharacterDetailState extends State<CharacterDetail> {
                 ),
                 InkWell(
                   onTap: () => data.toggleFavorite(widget.id),
-                  child: Icon(
-                    (character.favorite)
-                        ? Icons.favorite
-                        : Icons.favorite_border,
-                    color: Colors.blue,
-                  ),
+                  child: (character.favorite)
+                      ? Lottie.asset(
+                          Assets.anim.heart,
+                          height: 48,
+                          width: 48,
+                          repeat: false,
+                        )
+                      : const Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Icon(
+                            Icons.favorite_border,
+                            color: Colors.blue,
+                          ),
+                        ),
                 )
               ],
             ),

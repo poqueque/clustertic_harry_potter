@@ -30,9 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^6.1.0
   isar: ^3.1.0+1
   isar_flutter_libs: ^3.1.0+1
+  lottie:
   path_provider: ^2.1.1
   provider: ^6.1.1
   shared_preferences: ^2.2.2
@@ -46,9 +46,10 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+  build_runner: ^2.4.6
+  flutter_gen: ^5.3.2
   flutter_lints: ^2.0.0
   isar_generator: ^3.1.0+1
-  build_runner: ^2.4.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -60,6 +61,14 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/anim/
+  fonts:
+    - family: Montserrat
+      fonts:
+       - asset: assets/fonts/montserrat.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
