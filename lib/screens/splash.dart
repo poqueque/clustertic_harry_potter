@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/screens/adaptive_page.dart';
+import 'package:harry_potter/styles/app_styles.dart';
 
 import '../gen/assets.gen.dart';
-import 'character_list.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -32,15 +33,19 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Assets.images.hpBackground.image(),
+        Container(
+          width: double.infinity,
+          color: AppStyles.saffron,
+          child: Assets.images.hpBackground.image(fit: BoxFit.cover),
+        ),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 100),
-                Text(status),
+                Expanded(flex: 2, child: Container()),
+                Expanded(flex: 1, child: Text(status)),
               ],
             ),
           ),
@@ -62,7 +67,7 @@ class _SplashState extends State<Splash> {
 
     if (mounted) {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const CharacterList()));
+          MaterialPageRoute(builder: (context) => const AdaptivePage()));
     }
   }
 }

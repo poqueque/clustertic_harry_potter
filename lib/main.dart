@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:harry_potter/data/hogwarts_data.dart';
 import 'package:harry_potter/gen/fonts.gen.dart';
 import 'package:harry_potter/screens/splash.dart';
+import 'package:harry_potter/styles/app_styles.dart';
 import 'package:provider/provider.dart';
 
 import 'data/preferences.dart';
@@ -24,12 +25,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            colorScheme: ColorScheme.fromSeed(seedColor: AppStyles.saffron),
             useMaterial3: true,
             fontFamily: FontFamily.montserrat,
-            appBarTheme: AppBarTheme(
-              backgroundColor: Colors.purple.shade200,
-              foregroundColor: Colors.white,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: AppStyles.saffron,
               centerTitle: true,
             )),
         home: const Splash(),

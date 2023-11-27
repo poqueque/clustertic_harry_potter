@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/screens/character_detail.dart';
+import 'package:harry_potter/styles/app_styles.dart';
 import 'package:provider/provider.dart';
 
 import '../data/hogwarts_data.dart';
@@ -7,27 +8,15 @@ import '../data/preferences.dart';
 import '../gen/assets.gen.dart';
 
 class CharacterList extends StatelessWidget {
-  const CharacterList({super.key});
+  const CharacterList({super.key, this.showAppBar = true, this.onTapped});
+
+  final bool showAppBar;
+  final Function(int)? onTapped;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: Assets.images.hogwarts.image(
-            height: 24,
-          ),
-          title: const Text("Welcome to Hogwarts"),
-          actions: [
-            Consumer<Preferences>(builder: (context, preferences, child) {
-              return Switch(
-                value: preferences.showSubtitles,
-                onChanged: (value) {
-                  preferences.setShowSubtitles(value);
-                },
-              );
-            }),
-          ],
-        ),
+        appBar: (showAppBar) ? const HogwartsAppBar() : null,
         body: Consumer<HogwartsData>(builder: (
           context,
           data,
@@ -60,15 +49,19 @@ class CharacterList extends StatelessWidget {
                           (character.favorite)
                               ? Icons.favorite
                               : Icons.favorite_border,
-                          color: Colors.blue,
+                          color: AppStyles.trueBlue,
                         ),
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => CharacterDetail(
-                                        id: character.id,
-                                      )));
+                          if (onTapped == null) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CharacterDetail(
+                                          id: character.id,
+                                        )));
+                          } else {
+                            onTapped!(character.id);
+                          }
                         },
                       );
                     },
@@ -78,4 +71,33 @@ class CharacterList extends StatelessWidget {
           );
         }));
   }
+}
+
+class HogwartsAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const HogwartsAppBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      leading: Assets.images.hogwarts.image(
+        height: 24,
+      ),
+      title: const Text("Welcome to Hogwarts"),
+      actions: [
+        Consumer<Preferences>(builder: (context, preferences, child) {
+          return Switch(
+            value: preferences.showSubtitles,
+            onChanged: (value) {
+              preferences.setShowSubtitles(value);
+            },
+          );
+        }),
+      ],
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
