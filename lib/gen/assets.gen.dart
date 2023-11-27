@@ -26,8 +26,25 @@ class $AssetsImagesGen {
   AssetGenImage get hogwarts =>
       const AssetGenImage('assets/images/hogwarts.png');
 
+  /// File path: assets/images/hp_background.png
+  AssetGenImage get hpBackground =>
+      const AssetGenImage('assets/images/hp_background.png');
+
+  /// File path: assets/images/hp_logo_1152.png
+  AssetGenImage get hpLogo1152 =>
+      const AssetGenImage('assets/images/hp_logo_1152.png');
+
+  /// File path: assets/images/hp_logo_256.png
+  AssetGenImage get hpLogo256 =>
+      const AssetGenImage('assets/images/hp_logo_256.png');
+
+  /// File path: assets/images/hp_logo_960.png
+  AssetGenImage get hpLogo960 =>
+      const AssetGenImage('assets/images/hp_logo_960.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [hogwarts];
+  List<AssetGenImage> get values =>
+      [hogwarts, hpBackground, hpLogo1152, hpLogo256, hpLogo960];
 }
 
 class Assets {

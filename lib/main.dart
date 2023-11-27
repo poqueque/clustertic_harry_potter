@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/data/hogwarts_data.dart';
 import 'package:harry_potter/gen/fonts.gen.dart';
+import 'package:harry_potter/screens/splash.dart';
 import 'package:provider/provider.dart';
 
 import 'data/preferences.dart';
-import 'screens/character_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
               foregroundColor: Colors.white,
               centerTitle: true,
             )),
-        home: const CharacterList(),
+        home: const Splash(),
       ),
     );
   }
