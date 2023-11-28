@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../data/hogwarts_data.dart';
 import '../data/preferences.dart';
-import '../gen/assets.gen.dart';
+import '../widgets/hogwarts_app_bar.dart';
 
 class CharacterList extends StatelessWidget {
   const CharacterList({super.key, this.showAppBar = true, this.onTapped});
@@ -66,38 +66,16 @@ class CharacterList extends StatelessWidget {
                       );
                     },
                   ),
-                )
+                ),
+              const SizedBox(height: 48),
+              CalendarDatePicker(
+                initialDate: DateTime.now(),
+                firstDate: DateTime(1900),
+                lastDate: DateTime(2100),
+                onDateChanged: (value) {},
+              ),
             ],
           );
         }));
   }
-}
-
-class HogwartsAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HogwartsAppBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      leading: Assets.images.hogwarts.image(
-        height: 24,
-      ),
-      title: const Text("Welcome to Hogwarts"),
-      actions: [
-        Consumer<Preferences>(builder: (context, preferences, child) {
-          return Switch(
-            value: preferences.showSubtitles,
-            onChanged: (value) {
-              preferences.setShowSubtitles(value);
-            },
-          );
-        }),
-      ],
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -1,0 +1,5 @@
+{
+  "welcomeToHogwarts": "Bienvenidos a Hogwarts",
+  "characterDetails": "Detalles de {characterName}",
+  "nReviews": "{count, plural, =0{sin valoraciones} =1{1 valoración} other{{count} valoraciones}}"
+}

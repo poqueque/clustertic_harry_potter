@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:harry_potter/data/hogwarts_data.dart';
 import 'package:harry_potter/styles/app_styles.dart';
 import 'package:lottie/lottie.dart';
@@ -22,14 +23,15 @@ class _CharacterDetailState extends State<CharacterDetail> {
   double lastValueClicked = 0;
   @override
   Widget build(BuildContext context) {
-    var imageWidth = MediaQuery.of(context).size.width * .8;
+    final imageWidth = MediaQuery.of(context).size.width * .8;
+    final l = AppLocalizations.of(context)!;
 
     return Consumer<HogwartsData>(builder: (context, data, child) {
       Character character = data.getCharFromId(widget.id);
       return Scaffold(
         appBar: widget.showAppBar
             ? AppBar(
-                title: Text("${character.name} Details"),
+                title: Text(l.characterDetails(character.name)),
               )
             : null,
         body: SafeArea(
@@ -47,7 +49,7 @@ class _CharacterDetailState extends State<CharacterDetail> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Rating(value: character.stars),
-                  Text("${character.reviews} reviews"),
+                  Text(l.nReviews(character.reviews)),
                 ],
               ),
               Text(
